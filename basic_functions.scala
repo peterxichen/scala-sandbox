@@ -42,6 +42,12 @@ object BasicFunctions {
         x
     }
 
+    // parameter groups
+    def max_pg(x: Int)(y: Int) = if (x > y) x else y
+
+    // type parameter
+    def identity[Param](x: Param): Param = x
+
     def main(args: Array[String]): Unit = {
         println("Executing basic functions:")
         println("\nInput-less function...")
@@ -71,6 +77,24 @@ object BasicFunctions {
 
         println("\nSumming vararg...")
         println(sum_vararg(3,4,5))
+
+        println("\nMax of parameter groups...")
+        println(max_pg(3)(5))
+
+        println("\nType parameter...")
+        println(identity(safeTrim(s)))
+        println(identity(3))
+
+        // type class methods
+        println("\nInfix dot notation...")
+        println(x.floor)
+        println(x.compare(y))
+        println(x.+(y))
+
+        println("\nInfix operator notation...")
+        println(x floor)
+        println(x compare y)
+        println(x + y)
 
         println("\nTerminating")
     }

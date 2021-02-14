@@ -29,6 +29,19 @@ object BasicFunctions {
         else power_tr(x, n-1, x*t)
     }
 
+    // nested function
+    def max(a: Int, b: Int, c: Int) = {
+        def max(x: Int, y: Int) = if (x > y) x else y
+        max(a, max(b, c))
+    }
+
+    // vararg - match 0+ arguments from the caller
+    def sum_vararg(items: Int*): Int = {
+        var x = 0
+        for (i <- items) x += i
+        x
+    }
+
     def main(args: Array[String]): Unit = {
         println("Executing basic functions:")
         println("\nInput-less function...")
@@ -52,6 +65,12 @@ object BasicFunctions {
         println("\nRecursively calculating power...")
         println(power(2,10))
         println(power_tr(2,10))
+
+        println("\nNested function...")
+        println(max(3,4,5))
+
+        println("\nSumming vararg...")
+        println(sum_vararg(3,4,5))
 
         println("\nTerminating")
     }

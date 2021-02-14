@@ -2,7 +2,7 @@
 Collection of reusable or sample scala functions.
 
 ## Execute
-'''scala
+```scala
 scalac basic_functions.scala
 scala BasicFunctions
-'''
+```

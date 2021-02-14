@@ -21,6 +21,13 @@ object BasicFunctions {
         if (n >= 1) x * power(x, n-1)
         else 1
     }
+    
+    // optimized for tail-recursion
+    def power_tr(x: Int, n: Int, t: Int = 1): Long = {
+        if (n < 1) t
+        // recursive call must be last item
+        else power_tr(x, n-1, x*t)
+    }
 
     def main(args: Array[String]): Unit = {
         println("Executing basic functions:")
@@ -44,6 +51,7 @@ object BasicFunctions {
 
         println("\nRecursively calculating power...")
         println(power(2,10))
+        println(power_tr(2,10))
 
         println("\nTerminating")
     }

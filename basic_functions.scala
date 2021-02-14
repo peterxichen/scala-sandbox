@@ -1,14 +1,25 @@
 object BasicFunctions {
     // input-less functions
-    def hello = "hello world"
+    def hello() = "hello world"
 
     // full function
     def mult(x: Int, y: Int): Int = { x * y }
+
+    def formatEuro(amt: Double) = f"€$amt%.2f"
 
     // early function exit
     def safeTrim(s: String): String = {
         if (s == null) return null
         s.trim()
+    }
+
+    // procedures
+    def log(d: Double): Unit = println(f"$d%.2f")
+
+    // recursive function, raises integer by positive exponent
+    def power(x: Int, n: Int): Long = {
+        if (n >= 1) x * power(x, n-1)
+        else 1
     }
 
     def main(args: Array[String]): Unit = {
@@ -24,5 +35,16 @@ object BasicFunctions {
         val s = "    hello world      "
         println("\nTrimming string...")
         println(safeTrim(s))
+
+        println("\nExecuting procedure method...")
+        println(log(1.2345))
+
+        println("\nInvoking function with expression block...")
+        println(formatEuro { val rate = 1.32; 0.235 + 0.7123 + rate * 5.32 })
+
+        println("\nRecursively calculating power...")
+        println(power(2,10))
+
+        println("\nTerminating")
     }
 }

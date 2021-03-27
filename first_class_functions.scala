@@ -73,7 +73,21 @@ object FirstClassFunctions {
         println(triplCombine[Int, Double](123, 456, 789, _ * _ / _))
         println(triplCombine[Int, Boolean](123, 456, 789, _ * _ / _ > 10))
 
+        // partial placeholder
+        def factorOf(x: Int, y: Int) = {
+            y % x == 0
+        }
+        val f = factorOf _
+        println(f(3, 7))
+        val multipleOf3 = factorOf(3, _: Int)
+        println(multipleOf3(9))
 
+        // split into multipl parameter lists (currying)
+        def factorOfMulti(x: Int)(y: Int) = {
+            y % x == 0
+        }
+        val isEven = factorOfMulti(2) _
+        println(isEven(32))
 
 
         println("\nTerminating.")

@@ -89,7 +89,48 @@ object FirstClassFunctions {
         val isEven = factorOfMulti(2) _
         println(isEven(32))
 
+        // by-name parameters
+        // function or value can be passed
+        // if fuction is passed then function is invoked for every usage
+        def byname1(x: => Int) = {
+            println("Pass 1 for " + x)
+            x
+        }
+        def byname2(x: => Int) = {
+            println("Pass 2 for " + x)
+            x // <- executes here each pass
+        }
+        println("\nBy-name parameters:")
+        println(byname1(byname2(5)))
 
+        // partial functions
+        // only takes limited parameters
+        val statusHandler: Int => String = {
+            case 200 => "OK"
+            case 400 => "Client Error"
+            case 500 => "Server Error"
+        }
+        println("\nTesting partial parameters:")
+        println(statusHandler(200))
+        println(statusHandler(400))
+        println(statusHandler(500))
+        try {
+            statusHandler(100)
+        }
+        catch {
+            case e : Throwable => println("Caught error... " + e) 
+        }
+
+        // breaking parameters into function literal blocks
+        def safeStringSplit(s: String)(f: String => String) = {
+            if (s!=null) f(s) else s
+        }
+        val result_string = safeStringSplit("first") { s =>
+            val temp = s + "second"
+            temp.toUpperCase
+        } // invoked with block syntax
+        println("\nTestng function literal parameters:")
+        println(result_string)
         println("\nTerminating.")
     }
 }

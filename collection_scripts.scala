@@ -14,6 +14,14 @@ object CollectionScripts{
             x+=1
         }
 
+        val primes = List(2, 3, 5, 7, 11)
+        println(primes)
+        println(primes(0) + primes(4))
+        val first = primes.head
+        val remaining = primes.tail
+        println(first)
+        println(remaining)
+
         val colorset = Set("red", "red", "green")
         println(colorset)
 
@@ -25,6 +33,13 @@ object CollectionScripts{
         println(sizes_plus_1)
         val total = sizes.reduce( (a: Int, b: Int) => a + b)
         println(total)
+
+        val cMap = Map("red" -> 0xFF0000, "green" -> 0xFF00, "blue" -> 0xFF)
+        println(cMap)
+        println(cMap("red"))
+        println(cMap("red") | cMap("green"))
+        println(cMap.contains("green"))
+        for (c <- cMap) { println(c) }
 
         println("\nTerminating...")
     }

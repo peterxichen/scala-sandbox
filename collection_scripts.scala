@@ -22,6 +22,10 @@ object CollectionScripts{
         println(first)
         println(remaining)
 
+        // sample while loop implementation
+        var i = primes
+        while (! i.isEmpty) { print(i.head + ", "); i = i.tail}
+
         val colorset = Set("red", "red", "green")
         println(colorset)
 

@@ -25,6 +25,14 @@ object CollectionScripts{
         // sample while loop implementation
         var i = primes
         while (! i.isEmpty) { print(i.head + ", "); i = i.tail}
+        // recursive implementaiont
+        def visit(i: List[Int]) {
+            if (i.size > 0) {
+                print(i.head + ", "); visit(i.tail)
+            }
+        }
+        // lists end with an instance of Nil as terminus
+        while (i != Nil) { print(i.head + ", "; i = i.tail)}
 
         val colorset = Set("red", "red", "green")
         println(colorset)

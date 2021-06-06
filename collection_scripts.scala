@@ -98,7 +98,20 @@ object CollectionScripts{
         println(temp_builder)
         println(temp_builder.result)
 
+        println("\nArrays")
+        val color_array = Array("red", "green", "blue")
+        println(colors(2))
 
+        println("\nStreams")
+        // lazy collection, generated from 1+ starting elements and recursive function
+        def inc(i: Int): Stream[Int] = Stream.cons(i, inc(i+1))
+        val stream = inc(1)
+        println(stream)
+        val stream_list = stream.take(3).toList
+        println(stream_list)
+        println(stream)
+
+        println("\nMonadic collections")
         println("\nTerminating...")
     }
 }

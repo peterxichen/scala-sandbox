@@ -77,7 +77,27 @@ object CollectionScripts{
         println(cMap.contains("green"))
         for (c <- cMap) { println(c) }
 
-        println("\nMapping lists")
+        // mutable collections
+        println("\nMutable collections")
+        val m = Map("AAPL" -> 600, "MSFT" -> 100)
+        val n = m - "AAPL" + ("GOOG" -> 2000)
+        println(m)
+        println(n)
+
+        println("\nBuffer general purpose mutable seuquence")
+        val nums_buffer = collection.mutable.Buffer(1)
+        for (i <- 1 to 10) nums_buffer += i
+        println(nums_buffer)
+        println(nums_buffer.toList)
+
+        println("\nCollection builders")
+        val temp_builder = Set.newBuilder[Char]
+        temp_builder += 'j'
+        println(temp_builder)
+        temp_builder ++= List('k', 'l')
+        println(temp_builder)
+        println(temp_builder.result)
+
 
         println("\nTerminating...")
     }

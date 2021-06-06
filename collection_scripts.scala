@@ -112,6 +112,24 @@ object CollectionScripts{
         println(stream)
 
         println("\nMonadic collections")
+        // transformative operations liek Iterable
+        // cannot contain more than one element
+
+        // safe replacement for null
+        var w: String = "temp"
+        var o = Option(w)
+        println(o.isDefined)
+        w = null
+        var p = Option(w)
+        println(o.isDefined)
+        println(p.isDefined)
+        println(o.isEmpty)
+        println(p.isEmpty)
+
+        val somewords = List("ABC", "def", "hij", "KLM")
+        val lowercasewords = somewords find (w => w == w.toLowerCase)
+        println(lowercasewords)
+
         println("\nTerminating...")
     }
 }
